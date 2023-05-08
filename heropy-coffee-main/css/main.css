@@ -38,11 +38,11 @@ img {
 }
 .btn:hover {
   background-color: #333;
-  color: #FFF;
+  color: #fff;
 }
 .btn.btn--reverse {
   background-color: #333;
-  color: #FFF;
+  color: #fff;
 }
 .btn.btn--reverse:hover {
   background-color: transparent;
@@ -53,7 +53,7 @@ img {
   border-color: #592B18;
 }
 .btn.btn--brown:hover {
-  color: #FFF;
+  color: #fff;
   background-color: #592B18;
 }
 .btn.btn--gold {
@@ -61,16 +61,16 @@ img {
   border-color: #D9AA8A;
 }
 .btn.btn--gold:hover {
-  color: #FFF;
+  color: #fff;
   background-color: #D9AA8A;
 }
 .btn.btn--white {
-  color: #FFF;
+  color: #fff;
   border-color: #FFF;
 }
 .btn.btn--white:hover {
   color: #333;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 /*BACK TO POSITION*/
@@ -99,7 +99,7 @@ header {
   position: fixed;
   top: 0;
   z-index: 9;
-  background-color: #F6F5F0;
+  background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
 }
 header > .inner {
