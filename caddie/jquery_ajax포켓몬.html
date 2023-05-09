@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf course POKEMON</title>
+    <link type="text/css" href="bootstrap.min.css" rel="stylesheet">
+</head>
+<script src="js/jquery.js"></script>
+<script>
+    $(function () {
+        $('#search').click(function(){
+            $.ajax({
+                url:`https://pokeapi.co/api/v2/pokemon/${$('#pokemon').val()}`,
+                type:"GET",
+                data: {"query" : $("#pokemon").val()},
+                success:function(data) {
+
+                    console.log(data);
+
+                     $("#searchtable").empty();
+                    // var total_length = data.documents.length;
+
+                    var tb = "<table><tr><th ></th><th>포켓몬 이름</th><th>포켓몬 번호</th><th>포켓몬 무게</th><th></th></tr>";
+                    var $front_default = data.sprites.front_default;
+                    var $name = data.name;
+                    var $id = data.id;
+                    var $weight = data.weight;
+                    var $back_default = data.sprites.back_default;
+            //     var $picture_2 = total_array.picture.join(", ");
+            //     var $content_1 = total_array[i].title;
+            //     // var apl_array = [A, B, C, D];
+            //     // var apl_string = apl_array.join(", ");
+            //     var $content_3 = total_array[i].contents;
+                    var row = "";
+                    row += "<tr>";
+                    row += "<td><img src=" + $front_default + "></td>";
+                    row += `<td>${$name}</td>`;
+                    row += `<td>${$id}</td>`;
+                    row += `<td>${$weight}</td>`;
+                    row += "<td><img src=" + $back_default + "></td>";
+                //  row += `<td><ul>
+                //      <li><b>이미지</b> 
+                //          <ul>
+                //              <li>${$content_1}</li>
+                //          </ul>
+                //      </li>
+                //      <li><b>포켓몬 이름</b>
+                //          <ul>
+                //              <li>${$content_2}</li>
+                //          </ul>
+                //      </li></td>`;
+                    row += "</tr>";
+                
+                    tb += row;
+            
+
+                    tb += "</table>";
+                    $("#searchtable").append(tb);
+                    $("#searchtable > table").addClass("table table-striped text-center");
+
+                }, error:function() {
+                    var err_message = "요청할 수 없어서 에러가 발생했어요!";
+                    $("#searchtable").text(err_message);
+                }
+            })
+        })
+    });
+</script>
+
+<body>
+    <h1 class="text-center" style="margin-top: 20px;">POKEMON</h1>
+    <br>
+    <br>
+    <hr>
+    <div class="text-center">
+        <input id="pokemon" placeholder="ex: bulbasaur">
+        <button class="btn btn-success" id="search"> 검색 </button> 
+    </div>
+    <div id="searchtable"></div>
+    
+    <p class="text-bg-info text-center">ㅠ.ㅠ</p>
+</body>
+</html>
